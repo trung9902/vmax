@@ -1,0 +1,160 @@
+/* VMAX In Action: centered header over a faint watermark, then two photo rows drifting in opposite
+   directions. Photos and their order live in config.js (gallery.photos); files are in assets/team/. */
+#doi-ngu {
+  --u: clamp(0.6px, 0.0625vw, 1px); /* 1px from 1600px up; tile sizes are multiples of it */
+  --gap: clamp(8px, 0.75vw, 12px);
+  --ink: #0f172a;
+  position: relative;
+  padding: clamp(64px, 6vw, 96px) 0 clamp(64px, 6vw, 96px);
+  overflow: hidden;
+  background: #f8f9fa;
+}
+#doi-ngu .team-watermark {
+  position: absolute;
+  z-index: 0;
+  top: clamp(20px, 3.8vw, 76px);
+  left: 50%;
+  color: var(--ink);
+  font-size: clamp(64px, 10.5vw, 220px);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  white-space: nowrap;
+  opacity: 0.04;
+  transform: translateX(-50%);
+  user-select: none;
+  pointer-events: none;
+}
+#doi-ngu .team-header {
+  position: relative;
+  z-index: 1;
+  width: calc(100% - 40px);
+  max-width: 760px;
+  margin: 0 auto clamp(36px, 4vw, 56px);
+  text-align: center;
+}
+#doi-ngu .team-eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 0 0 16px;
+  color: #ff6b00;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+#doi-ngu .team-eyebrow::before,
+#doi-ngu .team-eyebrow::after {
+  content: "";
+  width: clamp(28px, 4vw, 42px);
+  height: 1px;
+  background: #ff9c58;
+}
+#doi-ngu .team-heading {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(30px, 3.2vw, 48px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+#doi-ngu .team-description {
+  max-width: 640px;
+  margin: 16px auto 0;
+  color: #5b6577;
+  font-size: clamp(14px, 1.05vw, 16px);
+  line-height: 1.7;
+  text-wrap: balance;
+}
+#doi-ngu .team-rows {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: var(--gap);
+}
+#doi-ngu .team-row {
+  height: calc(258 * var(--u));
+  overflow: hidden;
+}
+#doi-ngu .team-track {
+  display: flex;
+  width: max-content;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#doi-ngu .team-row--top .team-track {
+  align-items: flex-end;
+}
+#doi-ngu .team-row--bottom .team-track {
+  align-items: flex-start;
+}
+#doi-ngu .team-tile {
+  flex: none;
+  margin: 0 var(--gap) 0 0;
+  overflow: hidden;
+  border-radius: clamp(12px, 1vw, 16px);
+  background: #e9eeec;
+}
+#doi-ngu .team-tile img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%;
+  transition: transform 0.6s ease;
+}
+#doi-ngu .team-tile:hover img {
+  transform: scale(1.04);
+}
+/* Mixed frame sizes, as in the reference wall */
+#doi-ngu .tile-tall {
+  height: calc(258 * var(--u));
+  aspect-ratio: 1.6;
+}
+#doi-ngu .tile-mid {
+  height: calc(236 * var(--u));
+  aspect-ratio: 1.42;
+}
+#doi-ngu .tile-narrow {
+  height: calc(236 * var(--u));
+  aspect-ratio: 1.08;
+}
+#doi-ngu .tile-wide {
+  height: calc(236 * var(--u));
+  aspect-ratio: 1.85;
+}
+#doi-ngu .tile-short {
+  height: calc(196 * var(--u));
+  aspect-ratio: 1.45;
+}
+/* Drift (team-vmax.js adds .is-marquee after measuring and cloning, so it never starts half-built) */
+#doi-ngu .team-track.is-marquee {
+  animation: team-drift var(--duration, 90s) linear infinite;
+}
+#doi-ngu .team-row--bottom .team-track.is-marquee {
+  animation-direction: reverse;
+  animation-delay: calc(var(--duration, 90s) * -0.13); /* starts the rows out of step */
+}
+#doi-ngu .team-rows:hover .team-track.is-marquee {
+  animation-play-state: paused;
+}
+@keyframes team-drift {
+  to {
+    transform: translateX(calc(var(--shift) * -1));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #doi-ngu .team-track.is-marquee {
+    animation: none;
+  }
+  #doi-ngu .team-row {
+    overflow-x: auto;
+  }
+  #doi-ngu .team-tile img {
+    transition: none;
+  }
+}

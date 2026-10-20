@@ -1,0 +1,375 @@
+/* HeroSlogan: real HTML copy, isolated styles and SVG decoration. */
+.hero .hero-inner {
+  flex-wrap: wrap;
+  padding-bottom: 30px;
+}
+.hero-slogan {
+  position: relative;
+  isolation: isolate;
+  z-index: 7;
+  flex: 0 0 100%;
+  min-width: 0;
+  margin-top: 4px;
+  color: #071e18;
+  font-size: clamp(28px, 2.1vw, 34px);
+  font-weight: 800;
+  letter-spacing: -0.7px;
+  line-height: 1.12;
+}
+.hero-slogan::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -10px 45% 0 -20px;
+  background: radial-gradient(
+    ellipse at 35% 50%,
+    #effff5ed 25%,
+    #effff5a3 52%,
+    transparent 75%
+  );
+  filter: blur(6px);
+  opacity: 0.25;
+  pointer-events: none;
+}
+.slogan-copy {
+  margin: 0;
+}
+.slogan-line {
+  display: flex;
+  align-items: baseline;
+  gap: 0.27em;
+  width: fit-content;
+}
+.slogan-line-primary {
+  margin-bottom: 4px;
+  gap: 0.4em;
+  font-style: italic;
+}
+.slogan-intro {
+  font-size: 1.32em;
+  font-style: italic;
+  font-weight: 900;
+  letter-spacing: -0.055em;
+}
+.slogan-connection {
+  font-size: 2.5em;
+  font-weight: 900;
+  color: #008b43;
+  letter-spacing: -0.04em;
+  -webkit-text-stroke: 0.65px #008640;
+  -webkit-text-fill-color: #008b43;
+  text-shadow: 0 2px 0 #c5f5d7;
+}
+.slogan-line-secondary {
+  position: relative;
+  padding: 0;
+  gap: 0;
+  color: #fff;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  filter: drop-shadow(0 3px 7px #00864215);
+  white-space: nowrap;
+  font-style: italic;
+  align-items: stretch;
+}
+.slogan-between,
+.slogan-and,
+.slogan-ending {
+  position: relative;
+  isolation: isolate;
+  padding: 0.24em 0.6em;
+}
+.slogan-between {
+  padding-left: 1.05em;
+  padding-right: 0.8em;
+}
+.slogan-between::before,
+.slogan-ending::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+.slogan-between::before {
+  left: -120px;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    #08784b38 25%,
+    #07633ecf 68%,
+    #08784b
+  );
+  transform: skewX(-20deg);
+  mask-image: linear-gradient(90deg, transparent, #000 45%);
+}
+.slogan-between::after {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  left: -170px;
+  right: -10px;
+  top: -8px;
+  bottom: -8px;
+  background: linear-gradient(
+    100deg,
+    transparent 2%,
+    #37e29b24 40%,
+    #d1ffecc7 80%,
+    #5ee4a750
+  );
+  clip-path: polygon(0 16%, 100% 60%, 100% 100%, 0 63%);
+  filter: blur(1px);
+  pointer-events: none;
+}
+.slogan-and {
+  color: #071e18;
+  padding-inline: 0.65em;
+  background: #effff5a6;
+}
+.slogan-ending {
+  padding-left: 0.15em;
+  padding-right: 1.5em;
+}
+.slogan-ending::before {
+  left: -12px;
+  background: linear-gradient(100deg, #07643d, #06412edb);
+  border-radius: 0 999px 999px 0;
+}
+.slogan-highlight {
+  position: relative;
+  isolation: isolate;
+  display: inline-block;
+  padding: 0.24em 0.6em;
+  color: #fff;
+  font-weight: 800;
+  transition: filter 0.2s ease;
+}
+.slogan-highlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transform: skewX(-20deg);
+  border-radius: 0;
+}
+.slogan-customer::before {
+  background: linear-gradient(115deg, #ff7900, #ff9f00);
+  border-radius: 0 999px 999px 0;
+}
+.slogan-business::before {
+  background: linear-gradient(110deg, #008c46, #057340);
+}
+.slogan-highlight:hover {
+  filter: brightness(1.1);
+}
+.slogan-bridge {
+  position: absolute;
+  z-index: -2;
+  width: calc(100% + 160px);
+  max-width: none;
+  height: 210px;
+  left: -80px;
+  bottom: -24px;
+  overflow: visible;
+  pointer-events: none;
+}
+.bridge-halo {
+  stroke: #13d77a;
+  stroke-width: 24;
+  opacity: 0.32;
+  filter: blur(7px);
+}
+.bridge-rail {
+  stroke: url(#slogan-bridge-color);
+  stroke-width: 5;
+}
+.bridge-light {
+  stroke: #ffe0b2;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 130 1900;
+}
+.bridge-digital {
+  stroke: #0cba66;
+  stroke-width: 1;
+  opacity: 0.22;
+}
+.bridge-deck {
+  fill: #007b4c4d;
+}
+.bridge-road-edge {
+  stroke: url(#slogan-road-color);
+  stroke-width: 3;
+  filter: drop-shadow(0 0 5px #00e780);
+}
+.bridge-warmth {
+  stroke: url(#slogan-warm-glow);
+  stroke-width: 16;
+  filter: blur(7px);
+  pointer-events: none;
+}
+.bridge-city {
+  stroke: #07a65b;
+  stroke-width: 2;
+  fill: #00c16c12;
+  opacity: 0.2;
+}
+.hero-slogan[data-enhanced="true"] .slogan-copy,
+.hero-slogan[data-enhanced="true"] .slogan-highlight {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.75s ease,
+    transform 0.75s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.hero-slogan.is-visible .slogan-copy,
+.hero-slogan.is-visible .slogan-highlight {
+  opacity: 1;
+  transform: translateY(0);
+}
+.hero-slogan.is-visible .slogan-customer {
+  transition-delay: 0.2s;
+}
+.hero-slogan.is-visible .slogan-business {
+  transition-delay: 0.38s;
+}
+.hero-slogan.is-in-view .slogan-connection {
+  animation: slogan-soft-glow 8s ease-in-out infinite;
+}
+.hero-slogan.is-in-view .bridge-light {
+  animation: slogan-bridge-flow 22s linear infinite;
+}
+@keyframes slogan-soft-glow {
+  0%,
+  100% {
+    text-shadow:
+      0 2px 0 #c5f5d7,
+      0 0 10px #13d87805;
+  }
+  50% {
+    text-shadow:
+      0 2px 0 #c5f5d7,
+      0 0 18px #13d8783d;
+  }
+}
+@keyframes slogan-bridge-flow {
+  to {
+    stroke-dashoffset: -2030;
+  }
+}
+@media (min-width: 1001px) {
+  .hero .hero-inner {
+    min-height: 0;
+  }
+}
+@media (max-width: 1200px) {
+  .hero-slogan {
+    font-size: 25px;
+    letter-spacing: -0.8px;
+    margin-top: 12px;
+  }
+}
+@media (max-width: 1000px) {
+  .hero .hero-inner {
+    flex-wrap: nowrap;
+  }
+  .hero-slogan {
+    flex: none;
+    width: 100%;
+    margin-top: 24px;
+    font-size: 23px;
+  }
+  .slogan-line-secondary {
+    flex-wrap: wrap;
+    white-space: normal;
+    max-width: 100%;
+  }
+  .hero .hero-scene {
+    bottom: calc(var(--hero-slogan-height, 145px) + 54px);
+    mask-image: linear-gradient(
+      180deg,
+      transparent,
+      #000 25%,
+      #000 82%,
+      transparent
+    );
+  }
+}
+@media (max-width: 600px) {
+  .hero .hero-inner {
+    padding-bottom: 28px;
+  }
+  .hero-slogan {
+    font-size: clamp(19px, 5.2vw, 23px);
+    letter-spacing: -0.65px;
+  }
+  .slogan-line-primary {
+    gap: 0.4em;
+    margin-bottom: 12px;
+  }
+  .slogan-intro {
+    font-size: 1.05em;
+  }
+  .slogan-connection {
+    font-size: 1.7em;
+  }
+  .slogan-line-secondary {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 8px 10px;
+    border-radius: 0;
+    padding: 0;
+    width: 100%;
+    align-items: center;
+  }
+  .slogan-highlight {
+    width: fit-content;
+    padding: 0.24em 0.45em;
+  }
+  .slogan-between,
+  .slogan-and {
+    padding: 0.24em 0.5em;
+  }
+  .slogan-and {
+    background: transparent;
+  }
+  .slogan-business::before {
+    border-radius: 0 999px 999px 0;
+  }
+  .slogan-ending {
+    grid-column: 1 / -1;
+    padding-left: 0.6em;
+    width: fit-content;
+  }
+  .slogan-ending::before {
+    left: 0;
+    border-radius: 0 999px 999px 0;
+  }
+  .slogan-bridge {
+    width: calc(100% + 40px);
+    height: 180px;
+    left: -20px;
+    opacity: 0.5;
+    bottom: -8px;
+  }
+  .bridge-digital,
+  .bridge-city {
+    display: none;
+  }
+  .hero .hero-scene {
+    bottom: calc(var(--hero-slogan-height, 195px) + 52px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-slogan[data-enhanced="true"] .slogan-copy,
+  .hero-slogan[data-enhanced="true"] .slogan-highlight {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .hero-slogan .slogan-connection,
+  .hero-slogan .bridge-light {
+    animation: none;
+  }
+}

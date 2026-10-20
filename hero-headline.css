@@ -1,0 +1,39 @@
+/* Three service messages share the original heading's three-line frame. */
+.hero h1.hero-headline {
+  display: grid;
+  block-size: 3lh;
+}
+.hero-headline .headline-phrase {
+  grid-area: 1 / 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(5px);
+  transition:
+    opacity 0.45s ease,
+    transform 0.55s ease,
+    visibility 0.45s;
+  pointer-events: none;
+}
+.hero-headline .headline-phrase.is-active {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+.hero-headline .headline-phrase.is-leaving {
+  visibility: visible;
+  opacity: 0;
+  transform: translateY(-4px);
+}
+.hero .hero-headline .hero-title-line {
+  animation: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-headline .headline-phrase {
+    transition: none;
+    transform: none;
+  }
+}

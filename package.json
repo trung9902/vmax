@@ -1,0 +1,11 @@
+{
+  "name": "vmax-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "VMAX website — HTML, CSS and vanilla JavaScript",
+  "scripts": {
+    "dev": "node server.mjs",
+    "start": "node server.mjs",
+    "check": "node --check script.js && node --check hero-motion.js && node --check hero-slogan.js && node --check hero-headline.js && node --check about-vmax.js && node --check page-energy.js && node --check config.js && node --check server.mjs && node --check thiet-ke-website.js"
+  }
+}

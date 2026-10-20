@@ -1,0 +1,285 @@
+/* Ambient data-grid + radar background for the main page sections. */
+.data-grid-section {
+  position: relative;
+  isolation: isolate;
+}
+
+.data-grid {
+  --grid-green: 21, 151, 101;
+  --grid-orange: 255, 121, 0;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: inherit;
+  opacity: 0.32;
+  pointer-events: none;
+  contain: paint;
+  transition: opacity 0.7s ease;
+}
+
+.data-grid-section.is-data-grid-active .data-grid {
+  opacity: 0.68;
+}
+
+.data-grid__plane {
+  position: absolute;
+  inset: -72px -64px;
+  background-image:
+    linear-gradient(rgba(var(--grid-green), 0.11) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--grid-green), 0.11) 1px, transparent 1px),
+    linear-gradient(rgba(var(--grid-green), 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--grid-green), 0.045) 1px, transparent 1px);
+  background-position: 0 0, 0 0, 0 0, 0 0;
+  background-size: 96px 96px, 96px 96px, 24px 24px, 24px 24px;
+  mask-image: linear-gradient(90deg, transparent 0, #000 18%, #000 82%, transparent 100%);
+  opacity: 0.62;
+  transform: translate3d(0, 0, 0);
+  animation: data-grid-drift 22s linear infinite;
+  animation-play-state: paused;
+}
+
+.data-grid__scanline {
+  position: absolute;
+  top: -18%;
+  left: 0;
+  width: 100%;
+  height: 26%;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(var(--grid-green), 0.015) 42%,
+    rgba(var(--grid-green), 0.18) 49%,
+    rgba(var(--grid-orange), 0.1) 50%,
+    transparent 53%
+  );
+  filter: blur(0.2px);
+  animation: data-scanline 11s linear infinite;
+  animation-play-state: paused;
+}
+
+.data-grid__radar {
+  position: absolute;
+  top: var(--radar-top, 50%);
+  right: clamp(-180px, -8vw, -72px);
+  width: clamp(320px, 34vw, 560px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(var(--grid-green), 0.2);
+  border-radius: 50%;
+  background:
+    linear-gradient(90deg, transparent 49.8%, rgba(var(--grid-green), 0.18) 50%, transparent 50.2%),
+    linear-gradient(transparent 49.8%, rgba(var(--grid-green), 0.18) 50%, transparent 50.2%),
+    repeating-radial-gradient(
+      circle,
+      transparent 0 12.2%,
+      rgba(var(--grid-green), 0.16) 12.5% 12.75%,
+      transparent 13% 25%
+    );
+  box-shadow:
+    0 0 46px rgba(var(--grid-green), 0.055),
+    inset 0 0 60px rgba(var(--grid-green), 0.035);
+  opacity: 0.72;
+  transform: translateY(-50%);
+}
+
+.data-grid__radar--left {
+  right: auto;
+  left: clamp(-180px, -8vw, -72px);
+}
+
+.data-grid__radar::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg 292deg,
+    rgba(var(--grid-green), 0.01) 306deg,
+    rgba(var(--grid-green), 0.18) 342deg,
+    rgba(var(--grid-orange), 0.28) 359deg,
+    transparent 360deg
+  );
+  animation: data-radar-sweep 9s linear infinite;
+  animation-play-state: paused;
+}
+
+.data-grid__radar::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgb(var(--grid-orange));
+  box-shadow:
+    0 0 0 7px rgba(var(--grid-orange), 0.08),
+    0 0 20px rgba(var(--grid-orange), 0.52);
+  transform: translate(-50%, -50%);
+}
+
+.data-grid__signal {
+  position: absolute;
+  left: var(--signal-x);
+  top: var(--signal-y);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgb(var(--grid-green));
+  box-shadow: 0 0 14px rgba(var(--grid-green), 0.72);
+  opacity: 0.34;
+  animation: data-signal-pulse 3.8s ease-in-out infinite;
+  animation-delay: var(--signal-delay);
+  animation-play-state: paused;
+}
+
+.data-grid__signal::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border: 1px solid rgba(var(--grid-green), 0.26);
+  border-radius: 50%;
+  animation: data-signal-ring 3.8s ease-out infinite;
+  animation-delay: inherit;
+  animation-play-state: paused;
+}
+
+.data-grid__signal:nth-of-type(3n) {
+  background: rgb(var(--grid-orange));
+  box-shadow: 0 0 14px rgba(var(--grid-orange), 0.72);
+}
+
+.data-grid__signal:nth-of-type(3n)::before {
+  border-color: rgba(var(--grid-orange), 0.28);
+}
+
+.data-grid-section.is-data-grid-active .data-grid__plane,
+.data-grid-section.is-data-grid-active .data-grid__scanline,
+.data-grid-section.is-data-grid-active .data-grid__radar::before,
+.data-grid-section.is-data-grid-active .data-grid__signal,
+.data-grid-section.is-data-grid-active .data-grid__signal::before {
+  animation-play-state: running;
+}
+
+.data-grid-section > :not(.data-grid):not(.hero-scene) {
+  position: relative;
+  z-index: 2;
+}
+
+.data-grid-section.projects .data-grid,
+.data-grid-section.dark-section .data-grid,
+.data-grid-section.contact-cta .data-grid {
+  --grid-green: 71, 235, 154;
+  --grid-orange: 255, 144, 55;
+  opacity: 0.46;
+}
+
+.data-grid-section.projects.is-data-grid-active .data-grid,
+.data-grid-section.dark-section.is-data-grid-active .data-grid,
+.data-grid-section.contact-cta.is-data-grid-active .data-grid {
+  opacity: 0.82;
+}
+
+@keyframes data-grid-drift {
+  to {
+    background-position: 96px 96px, 96px 96px, 24px 24px, 24px 24px;
+  }
+}
+
+@keyframes data-scanline {
+  0% {
+    transform: translate3d(0, -5%, 0);
+    opacity: 0;
+  }
+  10%,
+  82% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, 490%, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes data-radar-sweep {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes data-signal-pulse {
+  0%,
+  100% {
+    opacity: 0.26;
+    transform: scale(0.76);
+  }
+  45% {
+    opacity: 0.92;
+    transform: scale(1.28);
+  }
+}
+
+@keyframes data-signal-ring {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  24% {
+    opacity: 0.8;
+  }
+  75%,
+  100% {
+    opacity: 0;
+    transform: scale(1.7);
+  }
+}
+
+@media (max-width: 900px) {
+  .data-grid {
+    opacity: 0.2;
+  }
+
+  .data-grid-section.is-data-grid-active .data-grid {
+    opacity: 0.44;
+  }
+
+  .data-grid__plane {
+    background-size: 112px 112px, 112px 112px, 28px 28px, 28px 28px;
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+
+  .data-grid__radar {
+    top: 36%;
+    right: -190px;
+    width: 370px;
+    opacity: 0.46;
+  }
+
+  .data-grid__radar--left {
+    right: auto;
+    left: -190px;
+  }
+
+  .data-grid__signal:nth-of-type(n + 7) {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .data-grid {
+    opacity: 0.3;
+  }
+
+  .data-grid__plane,
+  .data-grid__scanline,
+  .data-grid__radar::before,
+  .data-grid__signal,
+  .data-grid__signal::before {
+    animation: none !important;
+  }
+
+  .data-grid__scanline {
+    display: none;
+  }
+}

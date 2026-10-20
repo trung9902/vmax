@@ -1,0 +1,692 @@
+/* VMAX commitments: responsive orbital network on desktop, timeline on mobile. */
+#cam-ket {
+  position: relative;
+  padding: 76px 0 72px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 2% 0%, #eef7f1 0, transparent 18%),
+    radial-gradient(circle at 99% 44%, #f3f8f5 0, transparent 19%), #fff;
+}
+#cam-ket .commitments-layout {
+  display: grid;
+  grid-template-columns: minmax(290px, 0.83fr) minmax(0, 2.15fr);
+  gap: 26px;
+  align-items: center;
+  width: calc(100% - 80px);
+  max-width: 1500px;
+  margin-inline: auto;
+}
+#cam-ket .commitments-copy {
+  position: relative;
+  z-index: 3;
+  padding-left: 4px;
+}
+#cam-ket .commitments-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 19px;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+#cam-ket .commitments-eyebrow strong {
+  color: #ff6b00;
+  font-weight: 700;
+}
+#cam-ket .commitments-eyebrow::after {
+  content: "";
+  width: 36px;
+  height: 1px;
+  margin-left: 8px;
+  background: #ff9c58;
+}
+#cam-ket #commitments-heading {
+  max-width: 410px;
+  margin: 0;
+  color: #0f172a;
+  font-size: clamp(38px, 3vw, 54px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -2px;
+}
+#cam-ket #commitments-heading span {
+  color: #ff6b00;
+}
+#cam-ket .commitments-description {
+  max-width: 405px;
+  margin-top: 24px;
+  color: #64748b;
+  font-size: 15px;
+  line-height: 1.7;
+}
+#cam-ket .commitments-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 48px;
+  margin-top: 27px;
+  padding: 12px 22px;
+  border-radius: 28px;
+  color: #fff;
+  background: #ff6b00;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 8px 18px #ff6b001a;
+  transition:
+    transform 0.2s,
+    background 0.2s;
+}
+#cam-ket .commitments-cta:hover {
+  transform: translateY(-2px);
+  background: #e95f00;
+}
+#cam-ket .commitments-cta .icon {
+  width: 18px;
+  height: 18px;
+}
+#cam-ket .commitment-network {
+  position: relative;
+  min-width: 0;
+  height: 840px;
+  container-type: inline-size;
+}
+#cam-ket .commitment-hub {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 190px;
+  height: 190px;
+  transform: translate(-50%, -50%);
+  border: 1px solid #e3ece7;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 18px 48px #173d2a14;
+}
+#cam-ket .commitment-hub::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 2px solid #00875a;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  animation: cam-pulse 3.6s ease-out infinite;
+}
+#cam-ket .commitment-hub-logo {
+  display: grid;
+  place-items: center;
+  width: 140px;
+  height: 98px;
+  padding: 14px;
+  border-radius: 50%;
+  background: #fff;
+  animation: cam-breathe 4s ease-in-out infinite;
+}
+#cam-ket .commitment-hub-logo img {
+  width: 100%;
+  height: auto;
+}
+#cam-ket .commitment-orbit {
+  --arc: #00875a;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1px solid #dcece3;
+  border-radius: 50%;
+  translate: -50% -50%;
+  pointer-events: none;
+  animation: cam-spin 12s linear infinite;
+}
+/* Comet arc that trails the satellite dot */
+#cam-ket .commitment-orbit::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent 0 68%, var(--arc) 100%);
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 3px),
+    #000 calc(100% - 2.5px)
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 3px),
+    #000 calc(100% - 2.5px)
+  );
+}
+#cam-ket .commitment-orbit::after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  width: 11px;
+  height: 11px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: var(--arc);
+  box-shadow: 0 0 0 4px #00875a1f;
+  transform: translate(-50%, -50%);
+}
+#cam-ket .commitment-orbit--one {
+  width: 262px;
+  height: 262px;
+  animation-duration: 8s;
+}
+#cam-ket .commitment-orbit--two {
+  --arc: #ff6b00;
+  width: 376px;
+  height: 376px;
+  border-style: dashed;
+  animation: cam-spin-rev 22s linear infinite;
+}
+#cam-ket .commitment-orbit--two::after {
+  box-shadow: 0 0 0 4px #ff6b001f;
+}
+#cam-ket .commitment-orbit--three {
+  width: 504px;
+  height: 504px;
+  border-color: #e8f1ec;
+  animation-duration: 38s;
+}
+#cam-ket .commitment-orbit--three::before {
+  background: conic-gradient(from 0deg, transparent 0 80%, #00875a66 100%);
+}
+#cam-ket .commitment-connections {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+#cam-ket .connection-paths path {
+  fill: none;
+  stroke: #bfe0cd;
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 5 6;
+  animation: cam-flow 1.1s linear infinite;
+}
+#cam-ket .connection-packets circle {
+  fill: #00875a;
+  filter: drop-shadow(0 0 3px #00875a99);
+}
+#cam-ket .connection-packets .packet-orange {
+  fill: #ff6b00;
+  filter: drop-shadow(0 0 3px #ff6b0099);
+}
+#cam-ket .connection-nodes circle {
+  fill: #fff;
+  stroke-width: 3;
+  vector-effect: non-scaling-stroke;
+}
+#cam-ket .connection-nodes .node-green {
+  stroke: #00875a;
+}
+#cam-ket .connection-nodes .node-orange {
+  stroke: #ff6b00;
+}
+#cam-ket .commitment-node {
+  --cv: clamp(62px, 9.2cqw, 92px);
+  --nc: #00875a;
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: clamp(210px, 27.5cqw, 280px);
+  min-height: calc(var(--cv) + 28px);
+  padding: 14px;
+  border: 1px solid #e5eae7;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 8px 26px #163c2912;
+  transition:
+    transform 0.22s,
+    box-shadow 0.22s,
+    border-color 0.22s;
+  animation: cam-float 5s ease-in-out infinite alternate;
+}
+#cam-ket .commitment-node:nth-of-type(3n + 1) {
+  animation-delay: -0.6s;
+}
+#cam-ket .commitment-node:nth-of-type(3n + 2) {
+  animation-duration: 6s;
+  animation-delay: -2.4s;
+}
+#cam-ket .commitment-node:nth-of-type(3n) {
+  animation-duration: 5.5s;
+  animation-delay: -4s;
+}
+#cam-ket .commitment-node:nth-of-type(even) {
+  --nc: #ff6b00;
+}
+#cam-ket .commitment-node:hover {
+  transform: translateY(-4px);
+  border-color: var(--nc);
+  box-shadow: 0 16px 34px #163c291f;
+  animation-play-state: paused;
+}
+#cam-ket .commitment-visual {
+  display: grid;
+  place-items: center;
+  flex: 0 0 var(--cv);
+  width: var(--cv);
+  height: var(--cv);
+  overflow: hidden;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  color: #00875a;
+  background: #edf8f2;
+  box-shadow:
+    0 0 0 2px var(--nc),
+    0 8px 16px #163c2924;
+}
+#cam-ket .commitment-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+#cam-ket .commitment-node:hover .commitment-visual img {
+  transform: scale(1.14);
+}
+#cam-ket .commitment-node-copy {
+  min-width: 0;
+}
+#cam-ket .commitment-node-copy b {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--nc);
+  font-size: 16px;
+  line-height: 1;
+}
+#cam-ket .commitment-node h3 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.25px;
+}
+@keyframes cam-spin {
+  to {
+    rotate: 360deg;
+  }
+}
+@keyframes cam-spin-rev {
+  to {
+    rotate: -360deg;
+  }
+}
+@keyframes cam-pulse {
+  0% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.75);
+  }
+}
+@keyframes cam-breathe {
+  50% {
+    transform: scale(1.06);
+  }
+}
+@keyframes cam-flow {
+  to {
+    stroke-dashoffset: -11;
+  }
+}
+@keyframes cam-float {
+  from {
+    translate: 0 -5px;
+  }
+  to {
+    translate: 0 6px;
+  }
+}
+/* Travelling layout: commitments-orbit.js adds .is-orbit and moves each item along the track. */
+#cam-ket .commitment-network.is-orbit .commitment-node {
+  --cv: clamp(84px, 11.5cqw, 118px);
+  top: 0;
+  right: auto;
+  bottom: auto;
+  left: 0;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 9px;
+  width: clamp(132px, 16.5cqw, 164px);
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  text-align: center;
+  animation: none;
+  transition: scale 0.25s ease;
+  will-change: translate;
+}
+#cam-ket .commitment-network.is-orbit .commitment-node:hover {
+  transform: none;
+  scale: 1.07;
+  border-color: transparent;
+  box-shadow: none;
+}
+#cam-ket .commitment-network.is-orbit .commitment-node-copy {
+  padding: 6px 9px 7px;
+  border: 1px solid #e5eae7;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 6px 16px #163c2914;
+}
+#cam-ket .commitment-network.is-orbit .commitment-node:hover .commitment-node-copy {
+  border-color: var(--nc);
+}
+#cam-ket .commitment-network.is-orbit .commitment-node h3 {
+  font-size: 13px;
+  line-height: 1.3;
+}
+#cam-ket .commitment-network.is-orbit .commitment-node-copy b {
+  position: absolute;
+  z-index: 2;
+  top: calc(var(--cv) * 0.146 - 15px);
+  left: calc(50% + var(--cv) * 0.354 - 15px);
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--nc);
+  box-shadow: 0 3px 8px #163c2933;
+  font-size: 12px;
+}
+#cam-ket .commitment-network.is-orbit .commitment-orbit--three {
+  width: var(--orbit-w, 504px);
+  height: var(--orbit-h, 504px);
+  border-color: #cfe5d9;
+  animation: none;
+}
+#cam-ket .commitment-network.is-orbit .commitment-orbit--three::before,
+#cam-ket .commitment-network.is-orbit .commitment-orbit--three::after {
+  display: none;
+}
+#cam-ket .commitment-network.is-orbit .connection-paths,
+#cam-ket .commitment-network.is-orbit .connection-packets,
+#cam-ket .commitment-network.is-orbit .connection-nodes {
+  display: none;
+}
+#cam-ket .orbit-spokes {
+  display: none;
+}
+#cam-ket .is-orbit .orbit-spokes {
+  display: inline;
+}
+#cam-ket .orbit-spokes line {
+  stroke: #bfe0cd;
+  stroke-width: 1.5;
+  stroke-dasharray: 5 6;
+  animation: cam-flow 1.1s linear infinite;
+}
+#cam-ket .orbit-spokes circle {
+  fill: #00875a;
+  filter: drop-shadow(0 0 3px #00875a99);
+}
+#cam-ket .orbit-spokes .packet-orange {
+  fill: #ff6b00;
+  filter: drop-shadow(0 0 3px #ff6b0099);
+}
+#cam-ket .commitment-node--1 {
+  top: 0;
+  left: 18%;
+}
+#cam-ket .commitment-node--2 {
+  top: 0;
+  right: 5%;
+}
+#cam-ket .commitment-node--3 {
+  top: 24%;
+  right: 0;
+}
+#cam-ket .commitment-node--4 {
+  top: 48%;
+  right: -1%;
+}
+#cam-ket .commitment-node--5 {
+  right: 7%;
+  bottom: 0;
+}
+#cam-ket .commitment-node--6 {
+  bottom: -1%;
+  left: 36%;
+}
+#cam-ket .commitment-node--7 {
+  bottom: 0;
+  left: 6%;
+}
+#cam-ket .commitment-node--8 {
+  top: 50%;
+  left: 0;
+}
+#cam-ket .commitment-node--9 {
+  top: 24%;
+  left: 0;
+}
+@media (max-width: 1399px) and (min-width: 1200px) {
+  #cam-ket .commitments-layout {
+    grid-template-columns: minmax(280px, 0.75fr) minmax(0, 2.25fr);
+    width: calc(100% - 56px);
+    gap: 14px;
+  }
+  #cam-ket .commitment-node {
+    padding: 12px;
+    gap: 12px;
+  }
+  #cam-ket .commitment-node h3 {
+    font-size: 13px;
+  }
+}
+@media (max-width: 1199px) {
+  #cam-ket {
+    padding: 68px 0;
+  }
+  #cam-ket .commitments-layout {
+    grid-template-columns: 1fr;
+    width: calc(100% - 64px);
+    gap: 38px;
+  }
+  #cam-ket .commitments-copy {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 0 44px;
+    padding: 0;
+  }
+  #cam-ket .commitments-eyebrow {
+    grid-column: 1 / -1;
+  }
+  #cam-ket #commitments-heading {
+    grid-row: 2 / 4;
+  }
+  #cam-ket .commitments-description {
+    margin-top: 0;
+    align-self: end;
+  }
+  #cam-ket .commitments-cta {
+    justify-self: start;
+    margin-top: 20px;
+  }
+  #cam-ket .commitment-network {
+    width: min(100%, 980px);
+    margin-inline: auto;
+  }
+}
+@media (max-width: 899px) {
+  #cam-ket .commitments-layout {
+    gap: 34px;
+  }
+  #cam-ket .commitment-network {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+    width: 100%;
+    height: auto;
+  }
+  #cam-ket .commitment-hub {
+    position: relative;
+    top: auto;
+    left: auto;
+    grid-column: 1 / -1;
+    width: 138px;
+    height: 138px;
+    margin: 22px auto 35px;
+    transform: none;
+  }
+  #cam-ket .commitment-hub-logo {
+    width: 105px;
+    height: 72px;
+  }
+  #cam-ket .commitment-orbit--one {
+    width: 178px;
+    height: 178px;
+  }
+  #cam-ket .commitment-orbit--two {
+    width: 228px;
+    height: 228px;
+  }
+  #cam-ket .commitment-orbit--three {
+    display: none;
+  }
+  #cam-ket .commitment-connections {
+    display: none;
+  }
+  #cam-ket .commitment-node,
+  #cam-ket .commitment-node--1,
+  #cam-ket .commitment-node--2,
+  #cam-ket .commitment-node--3,
+  #cam-ket .commitment-node--4,
+  #cam-ket .commitment-node--5,
+  #cam-ket .commitment-node--6,
+  #cam-ket .commitment-node--7,
+  #cam-ket .commitment-node--8,
+  #cam-ket .commitment-node--9 {
+    --cv: 68px;
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    width: auto;
+    min-height: 104px;
+    animation: none;
+  }
+}
+@media (max-width: 767px) {
+  #cam-ket {
+    padding: 56px 0;
+  }
+  #cam-ket .commitments-layout {
+    width: calc(100% - 40px);
+    gap: 31px;
+  }
+  #cam-ket .commitments-copy {
+    display: block;
+  }
+  #cam-ket #commitments-heading {
+    font-size: 37px;
+    letter-spacing: -1.4px;
+  }
+  #cam-ket .commitments-description {
+    margin-top: 18px;
+    font-size: 13px;
+  }
+  #cam-ket .commitments-cta {
+    margin-top: 22px;
+  }
+  #cam-ket .commitment-network {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  #cam-ket .commitment-network::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 150px;
+    bottom: 45px;
+    left: 31px;
+    width: 1px;
+    background: #cfe5d8;
+  }
+  #cam-ket .commitment-hub {
+    grid-column: 1;
+    margin-bottom: 18px;
+  }
+  #cam-ket .commitment-node,
+  #cam-ket .commitment-node--1,
+  #cam-ket .commitment-node--2,
+  #cam-ket .commitment-node--3,
+  #cam-ket .commitment-node--4,
+  #cam-ket .commitment-node--5,
+  #cam-ket .commitment-node--6,
+  #cam-ket .commitment-node--7,
+  #cam-ket .commitment-node--8,
+  #cam-ket .commitment-node--9 {
+    z-index: 1;
+    min-height: 88px;
+    padding: 12px;
+  }
+  #cam-ket .commitment-node,
+  #cam-ket .commitment-node--1,
+  #cam-ket .commitment-node--2,
+  #cam-ket .commitment-node--3,
+  #cam-ket .commitment-node--4,
+  #cam-ket .commitment-node--5,
+  #cam-ket .commitment-node--6,
+  #cam-ket .commitment-node--7,
+  #cam-ket .commitment-node--8,
+  #cam-ket .commitment-node--9 {
+    --cv: 64px;
+  }
+  #cam-ket .commitment-node h3 {
+    font-size: 14px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #cam-ket .commitment-node,
+  #cam-ket .commitments-cta,
+  #cam-ket .commitment-visual img {
+    transition: none;
+  }
+  #cam-ket .commitment-node,
+  #cam-ket .commitment-orbit,
+  #cam-ket .commitment-hub::before,
+  #cam-ket .commitment-hub-logo,
+  #cam-ket .orbit-spokes line,
+  #cam-ket .connection-paths path {
+    animation: none;
+  }
+  #cam-ket .orbit-spokes circle {
+    display: none;
+  }
+  #cam-ket .commitment-hub::before,
+  #cam-ket .connection-packets {
+    display: none;
+  }
+  #cam-ket .commitment-node:hover,
+  #cam-ket .commitments-cta:hover,
+  #cam-ket .commitment-node:hover .commitment-visual img {
+    transform: none;
+  }
+}
