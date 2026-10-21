@@ -92,27 +92,121 @@ window.addEventListener("scroll", requestUpdate, { passive: true });
 window.addEventListener("resize", requestUpdate);
 updateScroll();
 
-/* Hero: chiều sâu nhẹ theo con trỏ (chỉ trên thiết bị có chuột, tôn trọng giảm chuyển động) */
-const stage = document.querySelector(".wd-stage");
-if (stage && !reduceMotion && window.matchMedia("(hover:hover) and (pointer:fine)").matches) {
-  const layers = [...stage.querySelectorAll("[data-depth]")];
+/* Hero: chiều sâu 3D tương tác theo con trỏ chuột */
+const heroVisual = document.querySelector(".wd-hero-visual");
+if (heroVisual && !reduceMotion && window.matchMedia("(hover:hover) and (pointer:fine)").matches) {
+  const container = heroVisual.querySelector(".wd-visual-container");
+  const depthElements = [...heroVisual.querySelectorAll("[data-depth]")];
   let frame = 0;
+
   const move = (event) => {
-    const box = stage.getBoundingClientRect();
-    const x = (event.clientX - box.left) / box.width - 0.5;
-    const y = (event.clientY - box.top) / box.height - 0.5;
+    const rect = heroVisual.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width - 0.5;
+    const y = (event.clientY - rect.top) / rect.height - 0.5;
+
     if (frame) return;
     frame = window.requestAnimationFrame(() => {
       frame = 0;
-      layers.forEach((layer) => {
-        const depth = Number(layer.dataset.depth);
-        layer.style.translate = `${(x * depth).toFixed(1)}px ${(y * depth * 0.7).toFixed(1)}px`;
+      if (container) {
+        container.style.transform = `perspective(1200px) rotateX(${(-y * 5).toFixed(2)}deg) rotateY(${(x * 7).toFixed(2)}deg)`;
+      }
+      depthElements.forEach((el) => {
+        const depth = Number(el.dataset.depth) || 10;
+        el.style.translate = `${(x * depth).toFixed(1)}px ${(y * depth * 0.75).toFixed(1)}px`;
       });
     });
   };
-  stage.addEventListener("pointermove", move);
-  stage.addEventListener("pointerleave", () => layers.forEach((layer) => (layer.style.translate = "")));
+
+  heroVisual.addEventListener("pointermove", move);
+  heroVisual.addEventListener("pointerleave", () => {
+    if (container) {
+      container.style.transition = "transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1)";
+      container.style.transform = "";
+      window.setTimeout(() => { container.style.transition = ""; }, 600);
+    }
+    depthElements.forEach((el) => {
+      el.style.transition = "translate 0.6s cubic-bezier(0.2, 0.7, 0.2, 1)";
+      el.style.translate = "";
+      window.setTimeout(() => { el.style.transition = ""; }, 600);
+    });
+  });
 }
+
+/* Hiệu ứng số đếm động cho thẻ thống kê năng lực */
+function initHeroCounters() {
+  const statNumbers = document.querySelectorAll(".wd-stat-num");
+  if (!statNumbers.length) return;
+
+  if (reduceMotion) {
+    statNumbers.forEach((el) => {
+      el.textContent = `${el.dataset.target}${el.dataset.suffix || ""}`;
+    });
+    return;
+  }
+
+  const duration = 1600;
+  const startTime = performance.now();
+
+  function animate(now) {
+    const elapsed = now - startTime;
+    const progress = Math.min(1, elapsed / duration);
+    // Smooth easeOutExpo curve
+    const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+
+    statNumbers.forEach((el) => {
+      const target = Number(el.dataset.target) || 0;
+      const suffix = el.dataset.suffix || "";
+      const current = Math.round(target * ease);
+      el.textContent = `${current}${suffix}`;
+    });
+
+    if (progress < 1) {
+      window.requestAnimationFrame(animate);
+    }
+  }
+
+  // Chạy sau khi hero hoàn tất fade-in
+  window.setTimeout(() => window.requestAnimationFrame(animate), 350);
+}
+initHeroCounters();
+
+/* Mobile Carousel cho Section Giải Pháp (Phương án 2) */
+function initSolutionCarousel() {
+  const container = document.getElementById("wdSolProjects");
+  const dots = document.querySelectorAll(".wd-sol-dot");
+  if (!container || !dots.length) return;
+
+  const cards = container.querySelectorAll(".wd-sol-card");
+
+  let scrollTimeout;
+  container.addEventListener("scroll", () => {
+    if (scrollTimeout) cancelAnimationFrame(scrollTimeout);
+    scrollTimeout = requestAnimationFrame(() => {
+      const scrollLeft = container.scrollLeft;
+      const cardWidth = cards[0]?.offsetWidth || container.offsetWidth;
+      const activeIndex = Math.min(
+        dots.length - 1,
+        Math.max(0, Math.round(scrollLeft / (cardWidth + 14)))
+      );
+      dots.forEach((dot, i) => {
+        const isActive = i === activeIndex;
+        dot.classList.toggle("is-active", isActive);
+        dot.setAttribute("aria-selected", String(isActive));
+      });
+    });
+  }, { passive: true });
+
+  dots.forEach((dot) => {
+    dot.addEventListener("click", () => {
+      const index = Number(dot.dataset.index) || 0;
+      if (cards[index]) {
+        cards[index].scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
+      }
+    });
+  });
+}
+initSolutionCarousel();
 
 const year = document.getElementById("wd-year");
 if (year) year.textContent = String(new Date().getFullYear());
+

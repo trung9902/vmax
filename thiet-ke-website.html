@@ -9,11 +9,14 @@
     <link rel="canonical" href="https://vmaxtech.vn/thiet-ke-website" />
     <title>Thiết Kế Website Chuẩn SEO, Tải Siêu Tốc &lt; 1s | VMAX</title>
     <link rel="icon" href="assets/vmax-favicon.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
     <link rel="preload" href="assets/inter-extrabold.ttf" as="font" type="font/ttf" crossorigin />
-    <link rel="preload" href="assets/project-auto.webp" as="image" fetchpriority="high" />
-    <link rel="stylesheet" href="thiet-ke-website.css" />
+    <link rel="preload" href="assets/hero-mockup-showcase.webp" as="image" type="image/webp" fetchpriority="high" />
+    <link rel="stylesheet" href="thiet-ke-website.css?v=11" />
     <script>document.documentElement.classList.add("js");</script>
-    <script src="thiet-ke-website.js" defer></script>
+    <script src="thiet-ke-website.js?v=11" defer></script>
     <script type="application/ld+json">
       {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
         {"@type":"Question","name":"Thời gian thiết kế và hoàn thiện một website mất bao lâu?","acceptedAnswer":{"@type":"Answer","text":"Thông thường quy trình thiết kế và lập trình website độc bản tại VMAX kéo dài từ 7 đến 15 ngày làm việc, tùy quy mô tính năng và độ phức tạp giao diện."}},
@@ -49,79 +52,396 @@
     <main id="main">
       <!-- 1 · HERO -->
       <section class="wd-hero" aria-labelledby="wd-title">
-        <div class="wd-hero-bg" aria-hidden="true"><span class="wd-hero-glow"></span><span class="wd-hero-orbit wd-hero-orbit-a"><i></i></span><span class="wd-hero-orbit wd-hero-orbit-b"></span></div>
+        <div class="wd-hero-bg" aria-hidden="true">
+          <span class="wd-hero-glow"></span>
+          <span class="wd-hero-dotgrid"></span>
+        </div>
         <div class="wd-wrap wd-hero-grid">
           <div class="wd-hero-copy">
-            <p class="wd-eyebrow wd-in" style="--d:0"><em>Thiết kế website VMAX</em></p>
-            <h1 id="wd-title">
-              <span class="wd-line wd-in" style="--d:1">Thiết kế website</span>
-              <span class="wd-line wd-in wd-green" style="--d:2">chuẩn SEO —</span>
-              <span class="wd-line wd-in" style="--d:3">nâng tầm thương hiệu<b class="wd-period">.</b></span>
+            <p class="wd-eyebrow wd-in" style="--d:0"><em>THIẾT KẾ WEBSITE VMAX</em></p>
+            <h1 id="wd-title" class="wd-hero-title">
+              <span class="wd-line wd-in" style="--d:1">WEBSITE <span class="wd-green">CHUẨN SEO</span></span>
+              <span class="wd-line wd-in" style="--d:2">GIÚP DOANH NGHIỆP</span>
+              <span class="wd-line wd-in" style="--d:3">TĂNG TRƯỞNG<b class="wd-period">.</b></span>
             </h1>
-            <p class="wd-lead wd-in" style="--d:4">Một website độc quyền cho cách thương hiệu của bạn muốn được nhớ đến — được thiết kế để dễ dùng, tải nhanh và sẵn sàng phát triển cùng doanh nghiệp.</p>
-            <div class="wd-hero-actions wd-in" style="--d:5">
-              <a class="wd-button wd-button-green" href="https://vmaxtech.vn/lien-he">Nhận tư vấn miễn phí <span aria-hidden="true">→</span></a>
-              <a class="wd-button wd-button-outline" href="#du-an">Xem dự án thực tế <span aria-hidden="true">↓</span></a>
+            <p class="wd-lead wd-in" style="--d:4">Sở hữu website chuyên nghiệp, tốc độ vượt trội, chuẩn SEO giúp doanh nghiệp tiếp cận khách hàng hiệu quả, tăng doanh số và nâng tầm thương hiệu trên môi trường số.</p>
+
+            <!-- 4 Lợi ích chính -->
+            <div class="wd-hero-benefits wd-in" style="--d:5">
+              <div class="wd-benefit-item">
+                <div class="wd-benefit-icon wd-icon-green" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                  </svg>
+                </div>
+                <div class="wd-benefit-text">
+                  <h3>Tốc độ tải nhanh</h3>
+                  <p>Trải nghiệm mượt mà, giữ chân khách hàng</p>
+                </div>
+              </div>
+
+              <div class="wd-benefit-item">
+                <div class="wd-benefit-icon wd-icon-orange" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                  </svg>
+                </div>
+                <div class="wd-benefit-text">
+                  <h3>Giao diện hiện đại</h3>
+                  <p>Thiết kế tinh tế, đúng nhận diện thương hiệu</p>
+                </div>
+              </div>
+
+              <div class="wd-benefit-item">
+                <div class="wd-benefit-icon wd-icon-green" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                  </svg>
+                </div>
+                <div class="wd-benefit-text">
+                  <h3>Chuẩn SEO</h3>
+                  <p>Dễ dàng lên top, tăng trưởng bền vững</p>
+                </div>
+              </div>
+
+              <div class="wd-benefit-item">
+                <div class="wd-benefit-icon wd-icon-orange" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  </svg>
+                </div>
+                <div class="wd-benefit-text">
+                  <h3>Hỗ trợ dài hạn</h3>
+                  <p>Đồng hành sau dự án, yên tâm vận hành</p>
+                </div>
+              </div>
             </div>
-            <ul class="wd-stats wd-in" style="--d:6" aria-label="Số liệu do VMAX công bố">
-              <li><b>500+</b><span>Website hoàn thành</span></li>
-              <li><b>500+</b><span>Khách hàng tin dùng</span></li>
-              <li><b>98%</b><span>Tỷ lệ hài lòng</span></li>
-            </ul>
-            <p class="wd-stats-note wd-in" style="--d:6">Số liệu do VMAX công bố.</p>
+
+            <!-- CTA Actions -->
+            <div class="wd-hero-actions wd-in" style="--d:6">
+              <a class="wd-button wd-button-green" href="https://vmaxtech.vn/lien-he">Nhận tư vấn miễn phí <span aria-hidden="true">→</span></a>
+              <a class="wd-button wd-button-secondary" href="#du-an">Xem dự án thực tế <span aria-hidden="true">→</span></a>
+            </div>
           </div>
 
-          <div class="wd-stage" aria-label="Một số website VMAX đã triển khai">
-            <a class="wd-browser wd-stage-back" data-depth="10" href="https://vmaxtech.vn/noi-that-cao-cap-luxhome-biet-thu" target="_blank" rel="noopener noreferrer" aria-label="Xem dự án Nội thất LuxHome">
-              <span class="wd-browser-bar" aria-hidden="true"><i></i><i></i><i></i></span>
-              <img src="assets/project-luxhome.webp" alt="Giao diện website nội thất LuxHome do VMAX triển khai" width="1920" height="953" />
-            </a>
-            <a class="wd-laptop wd-stage-main" data-depth="22" href="https://vmaxtech.vn/showroom-auto-luxury-xe-sang" target="_blank" rel="noopener noreferrer" aria-label="Xem dự án Auto Luxury">
-              <span class="wd-laptop-screen"><img src="assets/project-auto.webp" alt="Giao diện website showroom Auto Luxury do VMAX triển khai" width="1920" height="953" fetchpriority="high" /></span>
-              <span class="wd-laptop-base" aria-hidden="true"></span>
-            </a>
-            <a class="wd-phone wd-stage-phone" data-depth="36" href="https://vmaxtech.vn/spa-thao-moc-duong-sinh-tri-lieu" target="_blank" rel="noopener noreferrer" aria-label="Xem dự án Spa Thảo Mộc">
-              <img src="assets/project-spa.webp" alt="Giao diện di động website Spa Thảo Mộc do VMAX triển khai" width="1920" height="953" loading="lazy" />
-            </a>
-            <div class="wd-chip wd-chip-speed" data-depth="30"><b>95–100</b><span>PageSpeed<br />gói Nâng Cao</span></div>
-            <div class="wd-chip wd-chip-device" data-depth="14"><span class="wd-chip-dot"></span><span><b>Responsive</b><small>Desktop · Tablet · Mobile</small></span></div>
+          <!-- Khu vực bên phải: Trưng bày dự án động (Interactive Showcase) -->
+          <div class="wd-hero-visual wd-in" style="--d:3" aria-label="Mockup website đa thiết bị do VMAX triển khai">
+            <div class="wd-visual-container">
+              <!-- Mockup base scene -->
+              <picture class="wd-mockup-picture">
+                <source srcset="assets/hero-mockup-showcase.webp" type="image/webp" />
+                <img src="assets/hero-mockup-showcase.jpg" alt="Website Toyota và Spa triển khai trên laptop, tablet và điện thoại do VMAX thiết kế" width="1200" height="896" fetchpriority="high" class="wd-mockup-img" />
+              </picture>
+
+              <!-- Hiệu ứng quét sáng mềm trên mặt kính laptop (hoàn toàn trong suốt) -->
+              <div class="wd-screen-glare" aria-hidden="true"></div>
+
+              <!-- Chip động nổi PageSpeed 99 (Góc dưới trái) -->
+              <div class="wd-hero-chip wd-chip-speed" data-depth="22" aria-label="Chỉ số PageSpeed gói nâng cao">
+                <div class="wd-chip-score" aria-hidden="true">
+                  <svg viewBox="0 0 36 36" class="wd-score-ring">
+                    <path class="wd-ring-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="wd-ring-val" stroke-dasharray="99, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                  </svg>
+                  <b>99</b>
+                </div>
+                <div class="wd-chip-info">
+                  <b>PageSpeed 99/100</b>
+                  <span>Tải &lt; 0.8s · Core Web Vitals</span>
+                </div>
+              </div>
+
+              <!-- Ghi chú hiển thị tốt trên mọi thiết bị (vẽ mũi tên tự động) -->
+              <div class="wd-hero-note" data-depth="12" aria-hidden="true">
+                <svg class="wd-curved-arrow" viewBox="0 0 46 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path class="wd-arrow-path" d="M40 6C28 10 12 22 14 44" stroke="#087735" stroke-width="2.4" stroke-linecap="round"/>
+                  <path class="wd-arrow-head" d="M7 36L14 45L22 37" stroke="#087735" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="wd-note-text">Hiển thị tốt<br />trên mọi thiết bị</span>
+              </div>
+
+              <!-- Thẻ thống kê nổi (Desktop) với số đếm động và thanh đo trực tiếp -->
+              <div class="wd-hero-stats-card" data-depth="25" aria-label="Số liệu năng lực do VMAX công bố">
+                <div class="wd-stat-row">
+                  <div class="wd-stat-icon wd-icon-green" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                      <line x1="8" y1="21" x2="16" y2="21"></line>
+                      <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                  </div>
+                  <div class="wd-stat-info">
+                    <b class="wd-stat-num" data-target="500" data-suffix="+">500+</b>
+                    <span>Website hoàn thành</span>
+                  </div>
+                </div>
+
+                <div class="wd-stat-row">
+                  <div class="wd-stat-icon wd-icon-orange" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="9" cy="7" r="4"></circle>
+                      <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                  </div>
+                  <div class="wd-stat-info">
+                    <b class="wd-stat-num" data-target="500" data-suffix="+">500+</b>
+                    <span>Khách hàng tin dùng</span>
+                  </div>
+                </div>
+
+                <div class="wd-stat-row">
+                  <div class="wd-stat-icon wd-icon-green" aria-hidden="true">
+                    <svg class="wd-stat-chart-svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <rect class="wd-chart-bar b1" x="3" y="13" width="4.5" height="8" rx="1.5" fill="#087735"></rect>
+                      <rect class="wd-chart-bar b2" x="9.75" y="8" width="4.5" height="13" rx="1.5" fill="#087735"></rect>
+                      <rect class="wd-chart-bar b3" x="16.5" y="3" width="4.5" height="18" rx="1.5" fill="#087735"></rect>
+                    </svg>
+                  </div>
+                  <div class="wd-stat-info">
+                    <b class="wd-stat-num" data-target="98" data-suffix="%">98%</b>
+                    <span>Tỷ lệ hài lòng</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Thẻ thống kê hiển thị riêng cho Mobile (gọn gàng dưới mockup) -->
+            <div class="wd-mobile-stats" aria-label="Số liệu năng lực do VMAX công bố">
+              <div class="wd-stat-row">
+                <div class="wd-stat-icon wd-icon-green" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                  </svg>
+                </div>
+                <div class="wd-stat-info">
+                  <b class="wd-stat-num" data-target="500" data-suffix="+">500+</b>
+                  <span>Website hoàn thành</span>
+                </div>
+              </div>
+              <div class="wd-stat-row">
+                <div class="wd-stat-icon wd-icon-orange" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+                <div class="wd-stat-info">
+                  <b class="wd-stat-num" data-target="500" data-suffix="+">500+</b>
+                  <span>Khách hàng tin dùng</span>
+                </div>
+              </div>
+              <div class="wd-stat-row">
+                <div class="wd-stat-icon wd-icon-green" aria-hidden="true">
+                  <svg class="wd-stat-chart-svg" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <rect class="wd-chart-bar b1" x="3" y="13" width="4.5" height="8" rx="1.5" fill="#087735"></rect>
+                    <rect class="wd-chart-bar b2" x="9.75" y="8" width="4.5" height="13" rx="1.5" fill="#087735"></rect>
+                    <rect class="wd-chart-bar b3" x="16.5" y="3" width="4.5" height="18" rx="1.5" fill="#087735"></rect>
+                  </svg>
+                </div>
+                <div class="wd-stat-info">
+                  <b class="wd-stat-num" data-target="98" data-suffix="%">98%</b>
+                  <span>Tỷ lệ hài lòng</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="wd-marquee" aria-hidden="true"><div class="wd-marquee-track"><span>Thiết kế độc quyền</span><i></i><span>Chuẩn SEO từ nền tảng</span><i></i><span>Responsive mọi thiết bị</span><i></i><span>Tối ưu hiệu năng</span><i></i><span>Bàn giao 100% mã nguồn</span><i></i><span>Thiết kế độc quyền</span><i></i><span>Chuẩn SEO từ nền tảng</span><i></i><span>Responsive mọi thiết bị</span><i></i><span>Tối ưu hiệu năng</span><i></i><span>Bàn giao 100% mã nguồn</span><i></i></div></div>
       </section>
 
-      <!-- 2 · GIẢI PHÁP — BENTO -->
+      <!-- 2 · GIẢI PHÁP THIẾT KẾ WEBSITE (Phương án 2) -->
       <section class="wd-section wd-solutions" id="giai-phap" aria-labelledby="wd-solutions-title">
         <div class="wd-wrap">
-          <div class="wd-split-head wd-reveal">
-            <div><p class="wd-eyebrow"><em>01 / Giải pháp thiết kế website</em></p><h2 id="wd-solutions-title">Không chỉ đẹp.<br /><span class="wd-green">Phải làm việc tốt.</span></h2></div>
-            <p>Thiết kế, nội dung và nền tảng kỹ thuật cùng phối hợp để website tạo trải nghiệm rõ ràng cho khách hàng — và vững vàng cho đội ngũ quản trị.</p>
+          <!-- PHẦN A: Giới thiệu, Dự án thực tế & Thống kê -->
+          <div class="wd-sol-top wd-reveal">
+            <!-- Khu vực 1: Nội dung giới thiệu (~25%) -->
+            <div class="wd-sol-intro">
+              <div class="wd-sol-eyebrow">
+                <span>01 / GIẢI PHÁP THIẾT KẾ WEBSITE</span>
+                <span class="wd-sol-eyebrow-line" aria-hidden="true"></span>
+              </div>
+              <h2 id="wd-solutions-title" class="wd-sol-title">
+                <span class="wd-sol-title-l1">KHÔNG CHỈ ĐẸP.</span>
+                <span class="wd-sol-title-l2"><span class="wd-green">PHẢI LÀM VIỆC TỐT</span><span class="wd-period">.</span></span>
+              </h2>
+              <p class="wd-sol-desc">
+                Thiết kế, nội dung và nền tảng kỹ thuật được kết hợp để website tạo trải nghiệm rõ ràng cho khách hàng — và vững vàng cho đội ngũ quản trị.
+              </p>
+              <a href="#quy-trinh" class="wd-button wd-button-green wd-sol-cta">
+                Tìm hiểu cách làm <span aria-hidden="true">→</span>
+              </a>
+            </div>
+
+            <!-- Khu vực 2: Danh sách 3 dự án thực tế (~58%) -->
+            <div class="wd-sol-projects-container">
+              <div class="wd-sol-projects" id="wdSolProjects" role="region" aria-label="Dự án tiêu biểu">
+                <!-- Project 1: GOVI -->
+                <a class="wd-sol-card" href="https://vmaxtech.vn/noi-that-cao-cap-luxhome-biet-thu" target="_blank" rel="noopener noreferrer">
+                  <div class="wd-sol-card-media">
+                    <img src="assets/sol-project-govi-hq.webp" alt="Website GOVI – Nội thất văn phòng" width="438" height="375" loading="lazy" />
+                  </div>
+                  <div class="wd-sol-card-body">
+                    <div class="wd-sol-card-info">
+                      <h3 class="wd-sol-card-title">GOVI – Nội thất văn phòng</h3>
+                      <p class="wd-sol-card-sub">Website thương hiệu • B2B</p>
+                    </div>
+                    <span class="wd-sol-card-arrow" aria-hidden="true">↗</span>
+                  </div>
+                </a>
+
+                <!-- Project 2: Toyota -->
+                <a class="wd-sol-card" href="https://vmaxtech.vn/showroom-auto-luxury-xe-sang" target="_blank" rel="noopener noreferrer">
+                  <div class="wd-sol-card-media">
+                    <img src="assets/sol-project-toyota-hq.webp" alt="Website Toyota – Ô tô" width="438" height="375" loading="lazy" />
+                  </div>
+                  <div class="wd-sol-card-body">
+                    <div class="wd-sol-card-info">
+                      <h3 class="wd-sol-card-title">Toyota – Ô tô</h3>
+                      <p class="wd-sol-card-sub">Landing page • Giới thiệu sản phẩm</p>
+                    </div>
+                    <span class="wd-sol-card-arrow" aria-hidden="true">↗</span>
+                  </div>
+                </a>
+
+                <!-- Project 3: Yaris Cross - Giáo dục -->
+                <a class="wd-sol-card" href="https://vmaxtech.vn/landing-page-masteri-land-bat-dong-san" target="_blank" rel="noopener noreferrer">
+                  <div class="wd-sol-card-media">
+                    <img src="assets/sol-project-edu-hq.webp" alt="Website Yaris Cross – Giáo dục" width="438" height="375" loading="lazy" />
+                  </div>
+                  <div class="wd-sol-card-body">
+                    <div class="wd-sol-card-info">
+                      <h3 class="wd-sol-card-title">Yaris Cross – Giáo dục</h3>
+                      <p class="wd-sol-card-sub">Website tuyển sinh • B2C</p>
+                    </div>
+                    <span class="wd-sol-card-arrow" aria-hidden="true">↗</span>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Indicators cho Mobile Carousel -->
+              <div class="wd-sol-carousel-dots" aria-hidden="true">
+                <span class="wd-sol-dot is-active"></span>
+                <span class="wd-sol-dot"></span>
+                <span class="wd-sol-dot"></span>
+              </div>
+            </div>
+
+            <!-- Khu vực 3: Thống kê năng lực theo chiều dọc (~17%) -->
+            <div class="wd-sol-stats">
+              <div class="wd-sol-stat-item">
+                <div class="wd-sol-stat-icon wd-icon-green" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                  </svg>
+                </div>
+                <div class="wd-sol-stat-content">
+                  <b class="wd-sol-stat-num">500+</b>
+                  <span class="wd-sol-stat-label">Website hoàn thành</span>
+                </div>
+              </div>
+
+              <div class="wd-sol-stat-item">
+                <div class="wd-sol-stat-icon wd-icon-orange" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+                <div class="wd-sol-stat-content">
+                  <b class="wd-sol-stat-num">500+</b>
+                  <span class="wd-sol-stat-label">Khách hàng tin dùng</span>
+                </div>
+              </div>
+
+              <div class="wd-sol-stat-item">
+                <div class="wd-sol-stat-icon wd-icon-green" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="13" width="4.5" height="8" rx="1.5" fill="currentColor"></rect>
+                    <rect x="9.75" y="8" width="4.5" height="13" rx="1.5" fill="currentColor"></rect>
+                    <rect x="16.5" y="3" width="4.5" height="18" rx="1.5" fill="currentColor"></rect>
+                  </svg>
+                </div>
+                <div class="wd-sol-stat-content">
+                  <b class="wd-sol-stat-num">98%</b>
+                  <span class="wd-sol-stat-label">Tỷ lệ hài lòng</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="wd-bento">
-            <article class="wd-bento-a wd-reveal">
-              <div class="wd-bento-a-copy"><p class="wd-kicker">Thiết kế độc quyền</p><h3>Giao diện mang đúng cá tính thương hiệu.</h3><p>Không đóng khung vào một mẫu có sẵn. Bố cục và cách thể hiện được định hình theo ngành nghề, nội dung và mục tiêu của doanh nghiệp.</p><a class="wd-link" href="#quy-trinh">Tìm hiểu cách làm <span aria-hidden="true">→</span></a></div>
-              <div class="wd-bento-a-shot" aria-hidden="true"><div class="wd-browser"><span class="wd-browser-bar"><i></i><i></i><i></i></span><img src="assets/project-luxhome.webp" alt="" width="1920" height="953" loading="lazy" /></div></div>
-              <span class="wd-bento-orbit" aria-hidden="true"></span>
-            </article>
-            <article class="wd-bento-b wd-reveal">
-              <p class="wd-kicker">Chuẩn SEO</p>
-              <div class="wd-serp" aria-hidden="true"><span class="wd-serp-bar">cấu trúc website chuẩn SEO<b>⌕</b></span><span class="wd-serp-row"><i></i><span><b>Tiêu đề trang rõ ràng</b><small>URL thân thiện · nội dung có cấu trúc</small></span></span><span class="wd-serp-row wd-serp-row-dim"><i></i><span><b>Thẻ mô tả &amp; heading logic</b><small>Dễ đọc với người dùng và công cụ tìm kiếm</small></span></span></div>
-              <h3>SEO từ nền tảng</h3><p>Cấu trúc trang, tốc độ và trải nghiệm thân thiện với thiết bị di động.</p>
-            </article>
-            <article class="wd-bento-c wd-reveal">
-              <p class="wd-kicker">Tốc độ</p>
-              <div class="wd-speed" aria-hidden="true"><b>&lt;1<small>s</small></b><span><i></i></span></div>
-              <h3>Tối ưu hiệu năng</h3><p>Kiến trúc gọn, hướng tới PageSpeed 95–100 theo gói dịch vụ. Tốc độ tải theo công bố của VMAX.</p>
-            </article>
-            <article class="wd-bento-d wd-reveal">
-              <div><p class="wd-kicker">Responsive</p><h3>Liền mạch trên mọi màn hình</h3><p>Responsive cho desktop, tablet và điện thoại.</p></div>
-              <div class="wd-devices" aria-hidden="true"><span class="wd-dev-desk"><img src="assets/project-masteri.webp" alt="" width="1920" height="953" loading="lazy" /></span><span class="wd-dev-phone"><img src="assets/project-masteri.webp" alt="" width="1920" height="953" loading="lazy" /></span></div>
-            </article>
-            <article class="wd-bento-e wd-reveal">
-              <p class="wd-kicker">Quản trị dễ dàng</p>
-              <b class="wd-big">100%</b>
-              <h3>Mã nguồn thuộc về bạn</h3><p>Dễ quản trị, chủ động phát triển sau bàn giao.</p>
-            </article>
+
+          <!-- PHẦN B: Dải 4 lợi ích phía dưới -->
+          <div class="wd-sol-bottom wd-reveal">
+            <!-- Lợi ích 1: Thiết kế độc quyền -->
+            <div class="wd-sol-benefit">
+              <div class="wd-sol-benefit-icon wd-icon-green" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                  <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                  <path d="M2 2l7.586 7.586"></path>
+                  <circle cx="11" cy="11" r="2"></circle>
+                </svg>
+              </div>
+              <div class="wd-sol-benefit-text">
+                <h3>Thiết kế độc quyền</h3>
+                <p>Giao diện mang đúng cá tính thương hiệu.</p>
+              </div>
+            </div>
+
+            <!-- Lợi ích 2: Chuẩn SEO -->
+            <div class="wd-sol-benefit">
+              <div class="wd-sol-benefit-icon wd-icon-orange" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="12" width="4" height="9" rx="1" fill="currentColor"></rect>
+                  <rect x="10" y="7" width="4" height="14" rx="1" fill="currentColor"></rect>
+                  <rect x="17" y="3" width="4" height="18" rx="1" fill="currentColor"></rect>
+                </svg>
+              </div>
+              <div class="wd-sol-benefit-text">
+                <h3>Chuẩn SEO</h3>
+                <p>Cấu trúc tối ưu, dễ dàng lên top tìm kiếm.</p>
+              </div>
+            </div>
+
+            <!-- Lợi ích 3: Tốc độ vượt trội -->
+            <div class="wd-sol-benefit">
+              <div class="wd-sol-benefit-icon wd-icon-green" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+              </div>
+              <div class="wd-sol-benefit-text">
+                <h3>Tốc độ vượt trội</h3>
+                <p>Tối ưu PageSpeed 95–100, tải trang dưới 1 giây.</p>
+              </div>
+            </div>
+
+            <!-- Lợi ích 4: Responsive -->
+            <div class="wd-sol-benefit">
+              <div class="wd-sol-benefit-icon wd-icon-orange" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="5" y="2" width="14" height="20" rx="3" ry="3"></rect>
+                  <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                </svg>
+              </div>
+              <div class="wd-sol-benefit-text">
+                <h3>Responsive</h3>
+                <p>Hiển thị tốt trên mọi thiết bị: desktop, tablet và điện thoại.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
